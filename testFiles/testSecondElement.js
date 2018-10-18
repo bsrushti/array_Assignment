@@ -1,5 +1,5 @@
 const assert = require('assert');
-const secondElementList = require('../mainFiles/secondElement.js').selectSecondElement;
+const secondElementList = require('../mainFiles/library.js').selectSecondElement;
 
 //test for one element 
 assert.deepEqual(1,1);

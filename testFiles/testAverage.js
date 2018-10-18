@@ -1,5 +1,5 @@
 const assert = require('assert');
-const calcAverage = require('../mainFiles/calcAverage.js').calcAverage;
+const calcAverage = require('../mainFiles/library.js').calcAverage;
 
 //test for initial test
 assert.equal(1,1);

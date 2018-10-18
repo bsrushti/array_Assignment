@@ -1,4 +1,4 @@
-const oddNumberList = require('../mainFiles/oddNum.js').oddNumberList;
+const oddNumberList = require('../mainFiles/library.js').extractOddNumber;
 const assert = require('assert'); 
 let expectedOpt = [];
 let numberList = [];
@@ -22,3 +22,4 @@ numberList = [1,3,2,5,8,12];
 output = oddNumberList(numberList);
 assert.deepEqual(output,expectedOpt);
 //------------------
+console.log("tests Passed");

@@ -1,5 +1,5 @@
 const assert = require('assert');
-const calcGreatestNumber = require('../mainFiles/greatestNumber.js').calcGreatestNumber;
+const calcGreatestNumber = require('../mainFiles/library.js').calcGreatestNumber;
 
 //test for initial test
 assert.equal(1,1);

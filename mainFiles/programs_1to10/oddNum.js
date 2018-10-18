@@ -5,7 +5,7 @@ const isOdd = function(number) {
   }
 }
 
-const oddNumberList = function(numberList) {
+const extractOddNumber = function(numberList) {
   let oddArray = [];
   for(let index = 0; index < numberList.length; index ++) {
     if(isOdd(numberList[index])) {
@@ -15,6 +15,6 @@ const oddNumberList = function(numberList) {
   return oddArray;
 }
 
-exports.oddNumberList = oddNumberList;
+exports.extractOddNumber = extractOddNumber;
 
 

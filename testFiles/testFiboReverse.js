@@ -1,5 +1,5 @@
 const assert = require('assert');
-const reverseFibo = require('../mainFiles/reverseFibo.js').reverseFibo;
+const reverseFibo = require('../mainFiles/library.js').reverseFibo;
 
 //test for one element 
 assert.deepEqual(1,1);

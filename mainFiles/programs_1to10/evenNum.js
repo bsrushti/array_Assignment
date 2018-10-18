@@ -1,4 +1,3 @@
-let numberList = [1,3,2,5,8,12];
 
 const isEven = function(number) {
   let checkEven = (number % 2 == 0);
@@ -7,7 +6,7 @@ const isEven = function(number) {
   }
 }
 
-const evenNumberList = function(numberList) {
+const extractEvenNumber = function(numberList) {
   let evenArray = [];
   for(let index = 0; index < numberList.length; index ++) {
     if(isEven(numberList[index])) {
@@ -17,6 +16,6 @@ const evenNumberList = function(numberList) {
   return evenArray;
 }
 
-exports.evenNumberList = evenNumberList;
+exports.extractEvenNumber = extractEvenNumber;
 
 

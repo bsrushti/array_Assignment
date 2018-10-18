@@ -1,5 +1,5 @@
 const assert = require('assert');
-const calcLowestNumber = require('../mainFiles/lowestNumber.js').calcLowestNumber;
+const calcLowestNumber = require('../mainFiles/library.js').calcLowestNumber;
 
 //test for initial test
 assert.equal(1,1);

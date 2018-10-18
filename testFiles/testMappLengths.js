@@ -1,9 +1,17 @@
 const assert = require('assert');
-const giveStringLength = require('../mapFiles/mappLength.js').giveStringLength;
+const getStringLength = require('../mainFiles/library.js').getStringLength;
 
-let expectedOpt = [5];
-let inputString = "hello";
-let output = giveStringLength(inputString);
-assert.deepEqual(output,expectedOpt,"output did not match");
+//test for empty array
+assert.deepEqual(getStringLength([]),[]);
 
+//test for one string
+assert.deepEqual(getStringLength(["abc"]),[3]);
+
+//test for two string
+assert.deepEqual(getStringLength(["srushti","apple"]),[7,5]);
+
+//test for four string
+assert.deepEqual(getStringLength(["apple","orange","butterfruit","mango"]),[5,6,11,5]);
+
+console.log("tests passed");
 
