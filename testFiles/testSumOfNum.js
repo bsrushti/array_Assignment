@@ -1,5 +1,5 @@
 const assert = require('assert'); 
-const sumOfNumbers = require('../mainFiles/sumOfNumbers.js').sumOfNumbers; 
+const sumOfNumbers = require('../mainFiles/library.js').sumOfNumbers; 
 //--sum of one num --
 assert.equal(sumOfNumbers([1]),1);
 
