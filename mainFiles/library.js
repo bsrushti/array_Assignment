@@ -160,7 +160,7 @@ const countEvenNumbers = function(numberList) {
 const countNumbersAbove = function(numberList,number) {
   let count = 0;
   for(index in numberList) {
-    if(number >= numberList[index]) {
+    if(number < numberList[index]) {
       count ++;
     }
   }
