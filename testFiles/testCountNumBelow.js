@@ -1,18 +1,18 @@
-const countNumbersAbove = require('../mainFiles/library.js').countNumbersAbove;
+const countNumbersBelow = require('../mainFiles/library.js').countNumbersBelow;
 const assert = require('assert'); 
 //---check for empty array----
-//assert.equal(countNumbersAbove([],0),-1);
+assert.equal(countNumbersBelow([],0),0);
 //--------
 
 //---check for one num----
-//assert.equal(countNumbersAbove([1],1),0);
+assert.equal(countNumbersBelow([1],1),0);
 //-------
 
 //---check for two num-----
-assert.equal(countNumbersAbove([4,7],4),1);
+assert.equal(countNumbersBelow([4,7],7),1);
 //-----------------
 
 //----check for multiple even num---
-//assert.equal(countNumbersAbove([2,6,1,7,9,8],6),4);
+assert.equal(countNumbersBelow([2,6,1,7,9,8],7),3);
 //------------------
 console.log("tests Passed");

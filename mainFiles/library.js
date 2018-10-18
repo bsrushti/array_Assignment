@@ -172,12 +172,25 @@ const countNumbersAbove = function(numberList,number) {
 const countNumbersBelow = function(numberList,number) {
   let count = 0;
   for(index in numberList) {
-    if(number == numberList[index]) {
-      return numberList.length  - index;
+    if(number > numberList[index]) {
+      count ++;
     }
   }
-  return -1;
+  return count;
 }
+
+/* Reversing an Array */
+
+const reverseArray = function(numberList) {
+  let reverseArrayElements = [];
+  let reverseArrayIndex = 0;
+  for(let index = numberList.length-1; index >= 0; index--) {
+    reverseArrayElements[reverseArrayIndex] = numberList[index];
+    reverseArrayIndex ++;
+  }
+  return reverseArrayElements;
+}
+
 
 exports.extractOddNumber = extractOddNumber;
 exports.extractEvenNumber = extractEvenNumber;
@@ -192,6 +205,8 @@ exports.getStringLength = getStringLength;
 exports.countOddNumbers = countOddNumbers;
 exports.countEvenNumbers = countEvenNumbers;
 exports.countNumbersAbove = countNumbersAbove;
+exports.countNumbersBelow = countNumbersBelow;
+exports.reverseArray = reverseArray;
 
 //exports = {reverseNum}
 //console.log(exports);
