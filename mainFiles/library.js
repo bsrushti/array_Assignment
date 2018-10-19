@@ -241,6 +241,20 @@ const extractDigits = function(number) {
   return numberList;
 }
 
+/* Given an array, remove duplicate elements and return an array of only unique elements. */
+
+const getUniqElements = function(numberList) {
+  let uniqElements = [];
+  for(let index = 0; index < numberList.length; index++ ) {
+    let isInclude = !uniqElements.includes(numberList[index]);
+    if(isInclude) {
+    uniqElements.push(numberList[index]);
+    }
+  }
+  return uniqElements;
+}
+
+getUniqElements([2,4,1]);
 exports.extractOddNumber = extractOddNumber;
 exports.extractEvenNumber = extractEvenNumber;
 exports.sumOfNumbers = sumOfNumbers;
@@ -260,5 +274,6 @@ exports.findIndex = findIndex;
 exports.checkAscending = checkAscending ;
 exports.checkDescending = checkDescending ;
 exports.extractDigits = extractDigits;
+exports.getUniqElements = getUniqElements;
 //exports = {reverseNum}
 //console.log(exports);
