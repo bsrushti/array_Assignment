@@ -335,6 +335,29 @@ const zip = function(numberList1, numberList2) {
   return resultSet;
 }
 
+/* creates a new array by rotating elements from the given array. */
+
+const rotateArray = function(numberList, element) {
+
+}
+
+/* Given an array of numbers, it returns a partitioned array consisting of numbers above a certain number and below a certain number */
+
+const createPartition = function(numberList, number) {
+  let upPartition = [];
+  let lowerPartition = [];
+  let resultArray = [];
+  for(let index = 0; index < numberList.length; index ++) {
+    upPartition.push(numberList[index]);
+    if(numberList[index] > number) {
+      lowerPartition.push(numberList[index]);
+      upPartition.pop();
+    }
+  }
+  resultArray.push(upPartition,lowerPartition);
+  return resultArray;
+}
+
 exports.extractOddNumber = extractOddNumber;
 exports.extractEvenNumber = extractEvenNumber;
 exports.sumOfNumbers = sumOfNumbers;
@@ -360,3 +383,4 @@ exports.getIntersection = getIntersection;
 exports.getDifferenceOfSet = getDifferenceOfSet;
 exports.isSubset = isSubset;
 exports.zip = zip;
+exports.createPartition = createPartition;
