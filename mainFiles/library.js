@@ -312,6 +312,29 @@ const isSubset = function(numberList1,numberList2) {
   }
   return isSubset;
 }
+
+/* Make the zip of two array */
+
+const getMinLength = function(numberList1, numberList2) {
+  let length = numberList1.length;
+  let isMinLength = numberList2.length < numberList1.length;
+  if(isMinLength) {
+    length = numberList2.length;
+  }
+  return length;
+}
+
+const zip = function(numberList1, numberList2) {
+  let resultSet = [];
+  let length = getMinLength(numberList1, numberList2);
+  for(let index = 0; index < length; index ++) {
+  let zipSet = [];
+    zipSet.push(numberList1[index],numberList2[index]);
+    resultSet.push(zipSet);
+  }
+  return resultSet;
+}
+
 exports.extractOddNumber = extractOddNumber;
 exports.extractEvenNumber = extractEvenNumber;
 exports.sumOfNumbers = sumOfNumbers;
@@ -336,3 +359,4 @@ exports.getUnion = getUnion;
 exports.getIntersection = getIntersection;
 exports.getDifferenceOfSet = getDifferenceOfSet;
 exports.isSubset = isSubset;
+exports.zip = zip;
