@@ -254,7 +254,14 @@ const getUniqElements = function(numberList) {
   return uniqElements;
 }
 
-getUniqElements([2,4,1]);
+/* Given two arrays, generate a new array consisting of unique elements across both those arrays. */
+
+const getUnion = function(numberList1, numberList2) {
+  let uniqArray_1 = getUniqElements(numberList1);
+  let uniqArray_2 = getUniqElements(numberList2);
+  let union = uniqArray_1.concat(uniqArray_2);
+  return getUniqElements(union);
+}
 exports.extractOddNumber = extractOddNumber;
 exports.extractEvenNumber = extractEvenNumber;
 exports.sumOfNumbers = sumOfNumbers;
@@ -275,5 +282,4 @@ exports.checkAscending = checkAscending ;
 exports.checkDescending = checkDescending ;
 exports.extractDigits = extractDigits;
 exports.getUniqElements = getUniqElements;
-//exports = {reverseNum}
-//console.log(exports);
+exports.getUnion = getUnion;
