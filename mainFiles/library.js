@@ -300,9 +300,18 @@ const getDifferenceOfSet = function(numberList1, numberList2) {
 
 /* Given two arrays, check if the second is a proper subset of the first. */
 
-//const isSubset = function(numberList1,numberList2) {
-//  let isSubset = false;
-//}
+const isSubset = function(numberList1,numberList2) {
+  let isSubset = true;
+  let count = 0;
+  for(let index = 0; index < numberList2.length; index++ ) {
+    let isInclude = !numberList1.includes(numberList2[index])
+    if(isInclude && count ==0 ) {
+      count ++;
+      isSubset = false;
+    }
+  }
+  return isSubset;
+}
 exports.extractOddNumber = extractOddNumber;
 exports.extractEvenNumber = extractEvenNumber;
 exports.sumOfNumbers = sumOfNumbers;
@@ -326,3 +335,4 @@ exports.getUniqElements = getUniqElements;
 exports.getUnion = getUnion;
 exports.getIntersection = getIntersection;
 exports.getDifferenceOfSet = getDifferenceOfSet;
+exports.isSubset = isSubset;
