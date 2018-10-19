@@ -191,6 +191,55 @@ const reverseArray = function(numberList) {
   return reverseArrayElements;
 }
 
+/* Given an array of numbers find the first position of a specified number */
+
+const findIndex = function(numberList,number) {
+  let count = 1;
+  let resultIndex = 0;
+  for(let index = 0; index <= numberList.length-1; index++) {
+    if(number == numberList[index] && count == 1) {
+      count ++;
+      resultIndex = index;
+    }
+  }
+  return resultIndex;
+}
+
+/* Given an array of numbers, check if the array is in ascending order */
+
+const checkAscending = function(numberList) {
+  let isAscending = true;
+  for(let index = 0; index <= numberList.length-1; index++) {
+    if(numberList[index] > numberList[index+1]) {
+      isAscending = false;
+    }
+  }
+  return isAscending;
+}
+
+/* Given an array of numbers, check if the array is in descending order */
+
+const checkDescending = function(numberList) {
+  let isDescending = true;
+  for(let index = 0; index <= numberList.length-1; index++) {
+    if(numberList[index] < numberList[index+1]) {
+      isDescending = false;
+    }
+  }
+  return isDescending;
+}
+
+/* Given a number, extract the digits of a number into an array: */
+
+const extractDigits = function(number) {
+  let numberList = []; 
+  while (number != 0) {
+    let remainder = number % 10;
+    numberList.unshift(remainder);
+    number = Math.floor(number / 10);
+  }
+  return numberList;
+}
 
 exports.extractOddNumber = extractOddNumber;
 exports.extractEvenNumber = extractEvenNumber;
@@ -207,6 +256,9 @@ exports.countEvenNumbers = countEvenNumbers;
 exports.countNumbersAbove = countNumbersAbove;
 exports.countNumbersBelow = countNumbersBelow;
 exports.reverseArray = reverseArray;
-
+exports.findIndex = findIndex; 
+exports.checkAscending = checkAscending ;
+exports.checkDescending = checkDescending ;
+exports.extractDigits = extractDigits;
 //exports = {reverseNum}
 //console.log(exports);
