@@ -285,6 +285,24 @@ const getIntersection = function(numberList1, numberList2) {
   return intersection;
 }
 
+/* generate a new array consisting of unique elements that are contained in both arrays. */
+
+const getDifferenceOfSet = function(numberList1, numberList2) {
+  let resultSet = [];
+  for(let index = 0; index < numberList1.length; index++ ) {
+    let isInclude = !numberList2.includes(numberList1[index])
+    if(isInclude) {
+      resultSet.push(numberList1[index]);
+    }
+  }
+  return resultSet;
+}
+
+/* Given two arrays, check if the second is a proper subset of the first. */
+
+//const isSubset = function(numberList1,numberList2) {
+//  let isSubset = false;
+//}
 exports.extractOddNumber = extractOddNumber;
 exports.extractEvenNumber = extractEvenNumber;
 exports.sumOfNumbers = sumOfNumbers;
@@ -307,3 +325,4 @@ exports.extractDigits = extractDigits;
 exports.getUniqElements = getUniqElements;
 exports.getUnion = getUnion;
 exports.getIntersection = getIntersection;
+exports.getDifferenceOfSet = getDifferenceOfSet;
