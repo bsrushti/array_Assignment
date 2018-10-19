@@ -337,8 +337,14 @@ const zip = function(numberList1, numberList2) {
 
 /* creates a new array by rotating elements from the given array. */
 
-const rotateArray = function(numberList, element) {
-
+const rotateArray = function(numberList, inputIndex) {
+  let extractElements = [];
+  let index = 0;
+  while (index != inputIndex) {
+    index ++;
+    extractElements.push(numberList.shift());
+  }
+  return numberList.concat(extractElements);
 }
 
 /* Given an array of numbers, it returns a partitioned array consisting of numbers above a certain number and below a certain number */
@@ -383,4 +389,5 @@ exports.getIntersection = getIntersection;
 exports.getDifferenceOfSet = getDifferenceOfSet;
 exports.isSubset = isSubset;
 exports.zip = zip;
+exports.rotateArray = rotateArray;
 exports.createPartition = createPartition;
