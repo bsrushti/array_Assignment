@@ -262,6 +262,29 @@ const getUnion = function(numberList1, numberList2) {
   let union = uniqArray_1.concat(uniqArray_2);
   return getUniqElements(union);
 }
+
+/* Intersection of two arrays */
+
+const getCommonElements = function(numberList) {
+  let commonElements = [];
+  for(let index = 0; index < numberList.length; index++ ) {
+    let element = numberList.shift();
+    let isInclude = numberList.includes(element);
+    if(isInclude) {
+    commonElements.push(element);
+    }
+  }
+  return commonElements;
+}
+
+const getIntersection = function(numberList1, numberList2) {
+  let uniqArray_1 = getUniqElements(numberList1);
+  let uniqArray_2 = getUniqElements(numberList2);
+  let union = uniqArray_1.concat(uniqArray_2);
+  let intersection = getCommonElements(union);
+  return intersection;
+}
+
 exports.extractOddNumber = extractOddNumber;
 exports.extractEvenNumber = extractEvenNumber;
 exports.sumOfNumbers = sumOfNumbers;
@@ -283,3 +306,4 @@ exports.checkDescending = checkDescending ;
 exports.extractDigits = extractDigits;
 exports.getUniqElements = getUniqElements;
 exports.getUnion = getUnion;
+exports.getIntersection = getIntersection;
