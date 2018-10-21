@@ -1,75 +1,52 @@
 /* Given a list of numbers, select the ones that are odd */
 
 const isOdd = function(number) {
-  let checkOdd = (number % 2 != 0);
-  if(checkOdd) {
-    return true;
-  }
+  return (number % 2 != 0);
 }
 
 const extractOddNumber = function(numberList) {
-  let oddArray = [];
-  for(let index = 0; index < numberList.length; index ++) {
-    if(isOdd(numberList[index])) {
-      oddArray.push(numberList[index]);
-    }
-  }
-  return oddArray;
+  return numberList.filter(isOdd);
 }
 
-
-
 /* Given a list of numbers, select the ones that are even */
+
 const isEven = function(number) {
-  let checkEven = (number % 2 == 0);
-  if(checkEven) {
-    return true;
-  }
+  return  (number % 2 == 0);
 }
 
 const extractEvenNumber = function(numberList) {
-  let evenArray = [];
-  for(let index = 0; index < numberList.length; index ++) {
-    if(isEven(numberList[index])) {
-      evenArray.push(numberList[index]);
-    }
-  }
-  return evenArray;
+  return numberList.filter(isEven);
 }
-
 
 /* Given a list of numbers, find the sum of all these numbers */
-const sumOfNumbers = function(numberList) {
- let sum = 0;
-  for(let index = 0; index < numberList.length; index ++) {
-    sum = sum + numberList[index];
- }
-  return sum;
+const sum = function(num1, num2) {
+  return num1+num2;
 }
 
+const sumOfNumbers = function(numberList) {
+  return numberList.reduce(sum);
+}
 
 /* Given a list of numbers, PRINT the list in reverse order */
 
-const reverseNum = function(numberList) {
-  let reverseNumbers = [];
-  let i = 0;
-  for(let index = numberList.length-1; index >= 0 ; index --) {
-    reverseNumbers[i] = numberList[index];  
-    i++;
-  }
-  return reverseNumbers;
+const reverse = function(num1,num2) {
+  return [num2].concat(num1);
 }
 
+const reverseNum = function(numberList) {
+  return numberList.reduce(reverse);
+}
 
 /* Given a list of numbers, select every second one */
-const selectSecondElement = function(numberList) {
-  let secondElementList = [];
-  let arrIndex = 0;
-  for(let index = 2; index < numberList.length; index+=2) {
-    secondElementList[arrIndex] = numberList[index];
-    arrIndex ++;
+
+const selectSecondElement = function(element, index) {
+  if(isEven(index)) {
+    return [element];
   }
-  return secondElementList;
+}
+
+const getSecondElements = function(numberList) {
+  return numberList.filter(selectSecondElement);
 }
 
 /* Generate a fibonacci sequence of length n in reverse order */
@@ -79,66 +56,58 @@ const generateFibo = function(limit) {
   let tempArray = [-1,1];
   for(let index = 0; index < limit; index ++) {
     tempArray[index] = tempArray[tempArray.length-2] + tempArray[tempArray.length-1];
-    series[index] = tempArray[index];
+    series.push(tempArray[index]);
   }
   return series;
 }
 
 const reverseFibo = function(limit) {
   let fiboSeries = generateFibo(limit);
-  let reverseSeries = [];
-  let reverseIndex = 0;
-  for(let index = fiboSeries.length-1; index >= 0; index --) {
-    reverseSeries[reverseIndex] = fiboSeries[index];
-    reverseIndex ++;
-  }
-  return reverseSeries;
+  return fiboSeries.reduce(reverse,[]);
 }
 
 
 /* Given a list of numbers, find the greatest number in that sequence */
-
-const calcGreatestNumber = function(numberList) {
-  let greatest = numberList[0];
-  for(let index = 0; index < numberList.length; index++) {
-     if(greatest < numberList[index]) {
-      greatest = numberList[index];
-    }
+const getGreatest = function(num1,num2) {
+  if(num1 > num2) {
+    return num1;
   }
-  return greatest;
+  return num2;
 }
 
-const calcLowestNumber = function(numberList) {
-  let lowest = numberList[0];
-  for(let index = 0; index < numberList.length; index++) {
-     if(lowest > numberList[index]) {
-      lowest = numberList[index];
-    }
+const calcGreatestNumber = function(numberList) {
+  return numberList.reduce(getGreatest);
+}
+
+/* Given a list of numbers, find the smallest number in that sequence */
+
+const getSmallest = function(num1,num2) {
+  if(num1 < num2) {
+    return num1;
   }
-  return lowest;
+  return num2;
+}
+
+const calcSmallestNumber = function(numberList) {
+  return numberList.reduce(getSmallest);
 }
 
 /* Calculating average of given array elements */
 
-const calcAverage = function(numberList) {
-  let average = 0;
-  let sum = 0;
-  for(let index = 0; index < numberList.length; index++) {
-    sum = sum + numberList[index];
-  }
-  average = sum/numberList.length;
+const calcAverage = function(numberList) { 
+  average = numberList.reduce(sum)/numberList.length;
   return average;
 }
 
 /* Given a list of names, generate another array 
    that contains the length of each of the names */
 
+const getLength = function(name) {
+  return name.length;
+}
+
 const getStringLength = function(listOfNames) {
-  lengthOfName = [];
-  for(index in listOfNames) {
-    lengthOfName[index] = listOfNames[index].length;
-  }
-  return lengthOfName;
+  return listOfNames.map(getLength);
 }
 
 /* function to count odd numbers present in an array */
@@ -157,38 +126,40 @@ const countEvenNumbers = function(numberList) {
 
 /* Count how many numbers above a certain threshold in an array */
 
-const countNumbersAbove = function(numberList,number) {
-  let count = 0;
-  for(index in numberList) {
-    if(number < numberList[index]) {
-      count ++;
+const countElementAboveThreshold = function(threshold) {
+  let counter = 0;
+  return function(numberList,element) {
+    if(element > threshold) {
+      counter ++;
     }
+    return counter;
   }
-  return count;
+}
+
+const countNumbersAbove = function(numberList,number) {
+  return numberList.reduce(countElementAboveThreshold(number),[]);
 }
 
 /* Count how many numbers below a certain threshold in an array*/
 
-const countNumbersBelow = function(numberList,number) {
-  let count = 0;
-  for(index in numberList) {
-    if(number > numberList[index]) {
-      count ++;
+const countElementBelowThreshold = function(threshold) {
+  let counter = 0;
+  return function(numberList,element) {
+    if(element < threshold) {
+      counter ++;
     }
+    return counter;
   }
-  return count;
+}
+
+const countNumbersBelow = function(numberList,number) {
+  return numberList.reduce(countElementBelowThreshold(number),[]);
 }
 
 /* Reversing an Array */
 
 const reverseArray = function(numberList) {
-  let reverseArrayElements = [];
-  let reverseArrayIndex = 0;
-  for(let index = numberList.length-1; index >= 0; index--) {
-    reverseArrayElements[reverseArrayIndex] = numberList[index];
-    reverseArrayIndex ++;
-  }
-  return reverseArrayElements;
+  return numberList.reduce(reverse,[]);
 }
 
 /* Given an array of numbers find the first position of a specified number */
@@ -316,19 +287,17 @@ const isSubset = function(numberList1,numberList2) {
 /* Make the zip of two array */
 
 const getMinLength = function(numberList1, numberList2) {
-  let length = numberList1.length;
-  let isMinLength = numberList2.length < numberList1.length;
-  if(isMinLength) {
-    length = numberList2.length;
+  if( numberList2.length < numberList1.length) {
+    return numberList2.length;
   }
-  return length;
+  return numberList1.length;
 }
 
 const zip = function(numberList1, numberList2) {
   let resultSet = [];
   let length = getMinLength(numberList1, numberList2);
   for(let index = 0; index < length; index ++) {
-  let zipSet = [];
+    let zipSet = [];
     zipSet.push(numberList1[index],numberList2[index]);
     resultSet.push(zipSet);
   }
@@ -368,10 +337,10 @@ exports.extractOddNumber = extractOddNumber;
 exports.extractEvenNumber = extractEvenNumber;
 exports.sumOfNumbers = sumOfNumbers;
 exports.reverseNum = reverseNum;
-exports.selectSecondElement = selectSecondElement;
+exports.getSecondElements = getSecondElements;
 exports.reverseFibo = reverseFibo;
 exports.calcGreatestNumber = calcGreatestNumber;
-exports.calcLowestNumber = calcLowestNumber;
+exports.calcSmallestNumber = calcSmallestNumber;
 exports.calcAverage = calcAverage;
 exports.getStringLength = getStringLength;
 exports.countOddNumbers = countOddNumbers;
