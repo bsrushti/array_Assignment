@@ -17,7 +17,7 @@ assert.deepEqual(getDifferenceOfSet([2,1],[2,3]),[1]);
 assert.deepEqual(getDifferenceOfSet([1,4,2,6],[4,3,2,2]),[1,6]);
 
 
-console.log("Test Passed");
+console.log("Tests Passed");
 
 
 

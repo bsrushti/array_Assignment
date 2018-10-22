@@ -22,4 +22,4 @@ numberList = [1,3,2,5,8,12];
 output = evenNumberList(numberList);
 assert.deepEqual(output,expectedOpt);
 //------------------
-console.log("Tests Passes");
+console.log("Tests Passed");

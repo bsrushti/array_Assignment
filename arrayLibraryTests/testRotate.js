@@ -17,7 +17,7 @@ assert.deepEqual(rotateArray([3,1],1),[1,3]);
 assert.deepEqual(rotateArray([1,4,2,6],3),[6,1,4,2]);
 
 
-console.log("Test Passed");
+console.log("Tests Passed");
 
 
 

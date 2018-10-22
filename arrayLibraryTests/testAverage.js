@@ -14,7 +14,7 @@ assert.equal(calcAverage([2,5]),3.5);
 assert.equal(calcAverage([5,5,5,5]),5);
 
 
-console.log("Test Passed");
+console.log("Tests Passed");
 
 
 

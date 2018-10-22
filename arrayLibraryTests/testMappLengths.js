@@ -13,5 +13,5 @@ assert.deepEqual(getStringLength(["srushti","apple"]),[7,5]);
 //test for four string
 assert.deepEqual(getStringLength(["apple","orange","butterfruit","mango"]),[5,6,11,5]);
 
-console.log("tests passed");
+console.log("Tests passed");
 

@@ -17,4 +17,4 @@ assert.deepEqual(getUniqElements([2,2]),[2]);
 assert.deepEqual(getUniqElements([2,5,1,5]),[2,5,1]);
 
 
-console.log("Test Passed");
+console.log("Tests Passed");

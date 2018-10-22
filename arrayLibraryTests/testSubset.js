@@ -17,7 +17,7 @@ assert.equal(isSubset([2,1],[2,3]),false);
 assert.equal(isSubset([1,4,2,6],[1,2,4]),true);
 
 
-console.log("Test Passed");
+console.log("Tests Passed");
 
 
 
