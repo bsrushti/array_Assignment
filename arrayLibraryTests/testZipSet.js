@@ -17,7 +17,6 @@ assert.deepEqual(zip([2,1],[2,3]),[[2,2],[1,3]]);
 assert.deepEqual(zip([1,4,2,6],[1,2,4]),[[1,1],[2,4],[4,2]]);
 
 
-console.log("Tests Passed");
 
 
 

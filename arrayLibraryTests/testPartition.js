@@ -14,7 +14,6 @@ assert.deepEqual(createPartition([3,1],2),[[1],[3]]);
 assert.deepEqual(createPartition([1,4,2,6],4),[[1,4,2],[6]]);
 
 
-console.log("Tests Passed");
 
 
 

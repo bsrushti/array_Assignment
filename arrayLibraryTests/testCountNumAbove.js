@@ -15,4 +15,3 @@ assert.equal(countNumbersAbove([4,7],7),0);
 //----check for multiple even num---
 assert.equal(countNumbersAbove([2,6,1,7,9,8],7),2);
 //------------------
-console.log("Tests Passed");

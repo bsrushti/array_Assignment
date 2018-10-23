@@ -22,4 +22,3 @@ numberList = [1,3,2,5,8,12];
 output = oddNumberList(numberList);
 assert.deepEqual(output,expectedOpt);
 //------------------
-console.log("Tests Passed");

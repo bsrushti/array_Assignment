@@ -17,7 +17,6 @@ assert.deepEqual(reverseArray([2,3]),[3,2]);
 assert.deepEqual(reverseArray([1,4,6,3]),[3,6,4,1]);
 
 
-console.log("Tests Passed");
 
 
 

@@ -13,7 +13,6 @@ assert.equal(calcAverage([2,5]),3.5);
 //test for four element 
 assert.equal(calcAverage([5,5,5,5]),5);
 
-console.log("Tests Passed");
 
 
 

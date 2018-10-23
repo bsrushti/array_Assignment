@@ -17,7 +17,6 @@ assert.deepEqual(getUnion([2,1],[2,3]),[2,1,3]);
 assert.deepEqual(getUnion([1,4,2,6],[7,3,2,2]),[1,4,2,6,7,3]);
 
 
-console.log("Tests Passed");
 
 
 

@@ -1,20 +1,19 @@
 const assert = require('assert');
-const calcGreatestNumber = require('../mainFiles/library.js').calcGreatestNumber;
+const extractGreatestNumber = require('../mainFiles/library.js').extractGreatestNumber;
 
 //test for initial test
 assert.equal(1,1);
 
 //test for one element 
-assert.equal(calcGreatestNumber([1]),1);
+assert.equal(extractGreatestNumber([1]),1);
 
 //test for two element 
-assert.equal(calcGreatestNumber([2,5]),5);
+assert.equal(extractGreatestNumber([2,5]),5);
 
 //test for four element 
-assert.equal(calcGreatestNumber([5,9,12,4]),12);
+assert.equal(extractGreatestNumber([5,9,12,4]),12);
 
 
-console.log("Tests Passed");
 
 
 

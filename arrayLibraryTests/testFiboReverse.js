@@ -14,7 +14,6 @@ assert.deepEqual(reverseFibo(2),[1,0]);
 assert.deepEqual(reverseFibo(4),[2,1,1,0]);
 
 
-console.log("Tests Passed");
 
 
 

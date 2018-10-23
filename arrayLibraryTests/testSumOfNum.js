@@ -9,7 +9,6 @@ assert.equal(sumOfNumbers([1,1]),2);
 //--sum of two num --
 assert.equal(sumOfNumbers([1,1,7,3]),12);
 //---------
-console.log("Tests Passed");
 
 
 

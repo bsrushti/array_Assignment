@@ -15,4 +15,3 @@ assert.equal(checkAscending([4,7]),true);
 //----check for multiple even num---
 assert.equal(checkAscending([2,6,1,7,9,8]),false);
 //------------------
-console.log("Tests Passed");

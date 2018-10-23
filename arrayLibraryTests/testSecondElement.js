@@ -17,7 +17,6 @@ assert.deepEqual(secondElementList([1,5,2,7,1]),[ 1, 2, 1 ]);
 assert.deepEqual(secondElementList([1,5,6,4,0,2,7,1,3]),[ 1, 6, 0, 7, 3 ]);
 
 
-console.log("Tests Passed");
 
 
 
