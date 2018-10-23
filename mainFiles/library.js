@@ -19,6 +19,7 @@ const extractEvenNumber = function(numberList) {
 }
 
 /* Given a list of numbers, find the sum of all these numbers */
+
 const sum = function(num1, num2) {
   return num1+num2;
 }
@@ -29,12 +30,12 @@ const sumOfNumbers = function(numberList) {
 
 /* Given a list of numbers, PRINT the list in reverse order */
 
-const reverse = function(num1,num2) {
-  return [num2].concat(num1);
+const reverse = function(initialValue,secondValue) {
+  return [secondValue].concat(initialValue);
 }
 
-const reverseNum = function(numberList) {
-  return numberList.reduce(reverse);
+const reverseList = function(numberList) {
+  return numberList.reduce(reverse,[]);
 }
 
 /* Given a list of numbers, select every second one */
@@ -335,7 +336,7 @@ const createPartition = function(numberList, number) {
 exports.extractOddNumber = extractOddNumber;
 exports.extractEvenNumber = extractEvenNumber;
 exports.sumOfNumbers = sumOfNumbers;
-exports.reverseNum = reverseNum;
+exports.reverseList = reverseList;
 exports.getSecondElements = getSecondElements;
 exports.reverseFibo = reverseFibo;
 exports.calcGreatestNumber = calcGreatestNumber;
