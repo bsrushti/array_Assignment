@@ -4,11 +4,8 @@ const createPartition = require('../mainFiles/library.js').createPartition;
 //test for one element 
 assert.deepEqual(1,1);
 
-//test for empty element from array
-assert.deepEqual(createPartition([],[]),[[],[]]);
-
 //test for one element 
-assert.deepEqual(createPartition([1],[1]),[[1],[]]);
+assert.deepEqual(createPartition([1],1),[[1],[]]);
 
 //test for two element 
 assert.deepEqual(createPartition([3,1],2),[[1],[3]]);

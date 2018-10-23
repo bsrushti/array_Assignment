@@ -39,14 +39,16 @@ const reverseNum = function(numberList) {
 
 /* Given a list of numbers, select every second one */
 
-const selectSecondElement = function(element, index) {
-  if(isEven(index)) {
-    return [element];
+const selectSecondElement = function(object, element) {
+  if(isEven(object.index)) {
+    object.numbers.push(element);
   }
+  object.index ++;
+  return object;
 }
 
 const getSecondElements = function(numberList) {
-  return numberList.filter(selectSecondElement);
+  return numberList.reduce(selectSecondElement,{index:0,numbers:[]}).numbers;
 }
 
 /* Generate a fibonacci sequence of length n in reverse order */
@@ -68,6 +70,7 @@ const reverseFibo = function(limit) {
 
 
 /* Given a list of numbers, find the greatest number in that sequence */
+
 const getGreatest = function(num1,num2) {
   if(num1 > num2) {
     return num1;
@@ -126,10 +129,18 @@ const countEvenNumbers = function(numberList) {
 
 /* Count how many numbers above a certain threshold in an array */
 
+const isSmallest = function(number1, number2) {
+  return number1 < number2;
+}
+
+const isGreatest = function(number1, number2) {
+  return number1 > number2;
+}
+
 const countElementAboveThreshold = function(threshold) {
   let counter = 0;
   return function(numberList,element) {
-    if(element > threshold) {
+    if(isGreatest(element,threshold)) {
       counter ++;
     }
     return counter;
@@ -145,7 +156,7 @@ const countNumbersAbove = function(numberList,number) {
 const countElementBelowThreshold = function(threshold) {
   let counter = 0;
   return function(numberList,element) {
-    if(element < threshold) {
+    if(isSmallest(element,threshold)) {
       counter ++;
     }
     return counter;
@@ -165,15 +176,7 @@ const reverseArray = function(numberList) {
 /* Given an array of numbers find the first position of a specified number */
 
 const findIndex = function(numberList,number) {
-  let count = 1;
-  let resultIndex = 0;
-  for(let index = 0; index <= numberList.length-1; index++) {
-    if(number == numberList[index] && count == 1) {
-      count ++;
-      resultIndex = index;
-    }
-  }
-  return resultIndex;
+  return numberList.indexOf(number);
 }
 
 /* Given an array of numbers, check if the array is in ascending order */
@@ -214,94 +217,90 @@ const extractDigits = function(number) {
 
 /* Given an array, remove duplicate elements and return an array of only unique elements. */
 
-const getUniqElements = function(numberList) {
-  let uniqElements = [];
-  for(let index = 0; index < numberList.length; index++ ) {
-    let isInclude = !uniqElements.includes(numberList[index]);
-    if(isInclude) {
-    uniqElements.push(numberList[index]);
-    }
+const uniqElement = function(elements, element) {
+  if(!elements.includes(element)) {
+    elements.push(element);
   }
-  return uniqElements;
+  return elements;
+}
+
+const getUniqElements = function(numberList) {
+  return numberList.reduce(uniqElement,[]);
 }
 
 /* Given two arrays, generate a new array consisting of unique elements across both those arrays. */
 
 const getUnion = function(numberList1, numberList2) {
-  let uniqArray_1 = getUniqElements(numberList1);
-  let uniqArray_2 = getUniqElements(numberList2);
-  let union = uniqArray_1.concat(uniqArray_2);
+  let setOne = getUniqElements(numberList1);
+  let setTwo = getUniqElements(numberList2);
+  let union = setOne.concat(setTwo);
   return getUniqElements(union);
 }
 
 /* Intersection of two arrays */
 
-const getCommonElements = function(numberList) {
-  let commonElements = [];
-  for(let index = 0; index < numberList.length; index++ ) {
-    let element = numberList.shift();
-    let isInclude = numberList.includes(element);
-    if(isInclude) {
-    commonElements.push(element);
-    }
+const intersectingElements = function(object, element) {
+  if(object.array.includes(element)) {
+    object.result.push(element);
   }
-  return commonElements;
+  object.index++;
+  return object;
 }
 
 const getIntersection = function(numberList1, numberList2) {
-  let uniqArray_1 = getUniqElements(numberList1);
-  let uniqArray_2 = getUniqElements(numberList2);
-  let union = uniqArray_1.concat(uniqArray_2);
-  let intersection = getCommonElements(union);
-  return intersection;
+  let smallList = getSmallest(numberList1,numberList2);
+  let largeList = getGreatest(numberList1,numberList2);
+  return smallList.reduce(intersectingElements,{index:0,result:[],array:largeList}).result;
 }
 
-/* generate a new array consisting of unique elements that are contained in both arrays. */
+/* Generate a new array that consists of unique elements 
+ * that are present in the first array, but not in the second. */
+
+const getDifferenceOfFirstSet = function(object, element) {
+  if(!object.array.includes(element)) {
+    object.result.push(element);
+  }
+  object.index++;
+  return object;
+}
 
 const getDifferenceOfSet = function(numberList1, numberList2) {
-  let resultSet = [];
-  for(let index = 0; index < numberList1.length; index++ ) {
-    let isInclude = !numberList2.includes(numberList1[index])
-    if(isInclude) {
-      resultSet.push(numberList1[index]);
-    }
-  }
-  return resultSet;
+  let setOne = getUniqElements(numberList1);
+  let setTwo = getUniqElements(numberList2);
+  return setOne.reduce(getDifferenceOfFirstSet,{index:0,result:[],array:numberList2}).result;
 }
 
 /* Given two arrays, check if the second is a proper subset of the first. */
 
-const isSubset = function(numberList1,numberList2) {
-  let isSubset = true;
-  let count = 0;
-  for(let index = 0; index < numberList2.length; index++ ) {
-    let isInclude = !numberList1.includes(numberList2[index])
-    if(isInclude && count ==0 ) {
-      count ++;
-      isSubset = false;
-    }
+const subset = function(object, element) {
+  if(!object.array.includes(element)) {
+    object.result = false;
   }
-  return isSubset;
+  object.index ++;
+  return object;
+}
+
+const isSubset = function(numberList1,numberList2) {
+  return numberList2.reduce(subset,{index:0, result: true, array: numberList1}).result;
 }
 
 /* Make the zip of two array */
 
 const getMinLength = function(numberList1, numberList2) {
-  if( numberList2.length < numberList1.length) {
-    return numberList2.length;
-  }
-  return numberList1.length;
+  return getSmallest(numberList1,numberList2);
+}
+
+const zipSet = function(object, element) {
+  object.result[object.index] = [element,object.array[object.index]];
+  object.index ++;
+  return object;
 }
 
 const zip = function(numberList1, numberList2) {
-  let resultSet = [];
-  let length = getMinLength(numberList1, numberList2);
-  for(let index = 0; index < length; index ++) {
-    let zipSet = [];
-    zipSet.push(numberList1[index],numberList2[index]);
-    resultSet.push(zipSet);
-  }
-  return resultSet;
+  let smallList = getSmallest(numberList1,numberList2);
+  let largeList = getGreatest(numberList1,numberList2);
+  let zip = smallList.reduce(zipSet,{index : 0, result : [], array : largeList}).result;
+  return zip;
 }
 
 /* creates a new array by rotating elements from the given array. */
@@ -318,19 +317,19 @@ const rotateArray = function(numberList, inputIndex) {
 
 /* Given an array of numbers, it returns a partitioned array consisting of numbers above a certain number and below a certain number */
 
-const createPartition = function(numberList, number) {
-  let upPartition = [];
-  let lowerPartition = [];
-  let resultArray = [];
-  for(let index = 0; index < numberList.length; index ++) {
-    upPartition.push(numberList[index]);
-    if(numberList[index] > number) {
-      lowerPartition.push(numberList[index]);
-      upPartition.pop();
+const partitioner = function(threshold) {
+  return function(array,element) {
+    if(element <= threshold) {
+      array[0].push(element);
+      return array;
     }
+    array[1].push(element);
+    return array;
   }
-  resultArray.push(upPartition,lowerPartition);
-  return resultArray;
+}
+
+const createPartition = function(numberList, number) {
+  return numberList.reduce(partitioner(number),[[],[]]);
 }
 
 exports.extractOddNumber = extractOddNumber;

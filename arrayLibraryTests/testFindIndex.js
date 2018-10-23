@@ -1,7 +1,7 @@
 const findIndex = require('../mainFiles/library.js').findIndex;
 const assert = require('assert'); 
 //---check for empty array----
-assert.equal(findIndex([],0),0);
+assert.equal(findIndex([],0),-1);
 //--------
 
 //---check for one num----
