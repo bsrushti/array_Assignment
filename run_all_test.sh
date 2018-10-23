@@ -1,27 +1,9 @@
-node arrayLibraryTests/testAverage.js
-node arrayLibraryTests/testCheckAscending.js
-node arrayLibraryTests/testCheckDescending.js
-node arrayLibraryTests/testCountEven.js
-node arrayLibraryTests/testCountNumAbove.js
-node arrayLibraryTests/testCountNumBelow.js
-node arrayLibraryTests/testCountOdd.js
-node arrayLibraryTests/testDiffernceSet.js
-node arrayLibraryTests/testEven.js
-node arrayLibraryTests/testExtractDigits.js
-node arrayLibraryTests/testFiboReverse.js
-node arrayLibraryTests/testFindIndex.js
-node arrayLibraryTests/testGreatest.js
-node arrayLibraryTests/testIntersection.js
-node arrayLibraryTests/testLowest.js
-node arrayLibraryTests/testMappLengths.js
-node arrayLibraryTests/testOdd.js
-node arrayLibraryTests/testPartition.js
-node arrayLibraryTests/testReverseArray.js
-node arrayLibraryTests/testReverseNumbers.js
-node arrayLibraryTests/testRotate.js
-node arrayLibraryTests/testSecondElement.js
-node arrayLibraryTests/testSubset.js
-node arrayLibraryTests/testSumOfNum.js
-node arrayLibraryTests/testUnion.js
-node arrayLibraryTests/testUniqElements.js
-node arrayLibraryTests/testZipSet.js
+set -e
+directory="./arrayLibraryTests"
+files=$(ls $directory)
+
+for file in $files
+do
+  node $directory/$file
+  echo =====$file passed=====
+done
