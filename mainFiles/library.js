@@ -34,7 +34,7 @@ const reverse = function(initialValue,secondValue) {
   return [secondValue].concat(initialValue);
 }
 
-const reverseList = function(numberList) {
+const reverseArrayElements = function(numberList) {
   return numberList.reduce(reverse,[]);
 }
 
@@ -59,6 +59,7 @@ const generateFibo = function(limit) {
   let tempArray = [-1,1];
   for(let index = 0; index < limit; index ++) {
     tempArray[index] = tempArray[tempArray.length-2] + tempArray[tempArray.length-1];
+    console.log(tempArray);
     series.push(tempArray[index]);
   }
   return series;
@@ -336,7 +337,7 @@ const createPartition = function(numberList, number) {
 exports.extractOddNumber = extractOddNumber;
 exports.extractEvenNumber = extractEvenNumber;
 exports.sumOfNumbers = sumOfNumbers;
-exports.reverseList = reverseList;
+exports.reverseArrayElements = reverseArrayElements;
 exports.getSecondElements = getSecondElements;
 exports.reverseFibo = reverseFibo;
 exports.calcGreatestNumber = calcGreatestNumber;
