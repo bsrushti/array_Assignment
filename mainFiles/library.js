@@ -44,7 +44,7 @@ const selectSecondElement = function(object, element) {
   if(isEven(object.index)) {
     object.numbers.push(element);
   }
-  object.index ++;
+  object.index++;
   return object;
 }
 
@@ -78,34 +78,34 @@ const reverseFibo = function(limit) {
 
 /* Given a list of numbers, find the greatest number in that sequence */
 
-const getGreatest = function(num1,num2) {
+const getGreatestNumber = function(num1,num2) {
   if(num1 > num2) {
     return num1;
   }
   return num2;
 }
 
-const calcGreatestNumber = function(numberList) {
-  return numberList.reduce(getGreatest);
+const extractGreatestNumber = function(numberList) {
+  return numberList.reduce(getGreatestNumber);
 }
 
 /* Given a list of numbers, find the smallest number in that sequence */
 
-const getSmallest = function(num1,num2) {
+const getSmallestNumber = function(num1,num2) {
   if(num1 < num2) {
     return num1;
   }
   return num2;
 }
 
-const calcSmallestNumber = function(numberList) {
-  return numberList.reduce(getSmallest);
+const extractSmallestNumber = function(numberList) {
+  return numberList.reduce(getSmallestNumber);
 }
 
 /* Calculating average of given array elements */
 
 const calcAverage = function(numberList) { 
-  average = numberList.reduce(sum)/numberList.length;
+  average = numberList.reduce(sum)/getLength(numberList);
   return average;
 }
 
@@ -123,15 +123,13 @@ const getStringLength = function(listOfNames) {
 /* function to count odd numbers present in an array */
 
 const countOddNumbers = function(numberList) {
-  let oddNumbers = extractOddNumber(numberList);
-  return oddNumbers.length;
+  return extractOddNumber(numberList).length;
 }
 
 /* function to count even numbers present in an array */
 
 const countEvenNumbers = function(numberList) {
-  let evenNumbers = extractEvenNumber(numberList);
-  return evenNumbers.length;
+  return extractEvenNumber(numberList).length;
 }
 
 /* Count how many numbers above a certain threshold in an array */
@@ -148,7 +146,7 @@ const countElementAboveThreshold = function(threshold) {
   let counter = 0;
   return function(numberList,element) {
     if(isGreatest(element,threshold)) {
-      counter ++;
+      counter++;
     }
     return counter;
   }
@@ -256,8 +254,8 @@ const intersectingElements = function(object, element) {
 }
 
 const getIntersection = function(numberList1, numberList2) {
-  let smallList = getSmallest(numberList1,numberList2);
-  let largeList = getGreatest(numberList1,numberList2);
+  let smallList = getSmallestNumber(numberList1,numberList2);
+  let largeList = getGreatestNumber(numberList1,numberList2);
   return smallList.reduce(intersectingElements,{index:0,result:[],array:largeList}).result;
 }
 
@@ -284,7 +282,7 @@ const subset = function(object, element) {
   if(!object.array.includes(element)) {
     object.result = false;
   }
-  object.index ++;
+  object.index++;
   return object;
 }
 
@@ -295,7 +293,7 @@ const isSubset = function(numberList1,numberList2) {
 /* Make the zip of two array */
 
 const getMinLength = function(numberList1, numberList2) {
-  return getSmallest(numberList1,numberList2);
+  return getSmallestNumber(numberList1,numberList2);
 }
 
 const zipSet = function(object, element) {
@@ -305,8 +303,8 @@ const zipSet = function(object, element) {
 }
 
 const zip = function(numberList1, numberList2) {
-  let smallList = getSmallest(numberList1,numberList2);
-  let largeList = getGreatest(numberList1,numberList2);
+  let smallList = getSmallestNumber(numberList1,numberList2);
+  let largeList = getGreatestNumber(numberList1,numberList2);
   let zip = smallList.reduce(zipSet,{index : 0, result : [], array : largeList}).result;
   return zip;
 }
@@ -346,8 +344,8 @@ exports.sumOfNumbers = sumOfNumbers;
 exports.reverseArrayElements = reverseArrayElements;
 exports.getSecondElements = getSecondElements;
 exports.reverseFibo = reverseFibo;
-exports.calcGreatestNumber = calcGreatestNumber;
-exports.calcSmallestNumber = calcSmallestNumber;
+exports.extractGreatestNumber = extractGreatestNumber;
+exports.extractSmallestNumber = extractSmallestNumber;
 exports.calcAverage = calcAverage;
 exports.getStringLength = getStringLength;
 exports.countOddNumbers = countOddNumbers;
