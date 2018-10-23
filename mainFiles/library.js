@@ -59,11 +59,13 @@ const generateFibo = function(limit) {
   if(limit == 0) {
     return [];
   }
+
   if(limit == 1) {
     return [0]
   }
-  for(let index = 1; index < limit; index ++) {
-    series[index] = series[series.length-1] + series[series.length-2];
+
+  for(let index = series.length; index < limit; index ++) {
+    series.push(series[index-1] + series[index-2]);
   }
   return series;
 }
