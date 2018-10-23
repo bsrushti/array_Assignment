@@ -55,12 +55,15 @@ const getSecondElements = function(numberList) {
 /* Generate a fibonacci sequence of length n in reverse order */
 
 const generateFibo = function(limit) {
-  let series = [];
-  let tempArray = [-1,1];
-  for(let index = 0; index < limit; index ++) {
-    tempArray[index] = tempArray[tempArray.length-2] + tempArray[tempArray.length-1];
-    console.log(tempArray);
-    series.push(tempArray[index]);
+  let series = [0,1];
+  if(limit == 0) {
+    return [];
+  }
+  if(limit == 1) {
+    return [0]
+  }
+  for(let index = 1; index < limit; index ++) {
+    series[index] = series[series.length-1] + series[series.length-2];
   }
   return series;
 }
@@ -172,6 +175,7 @@ const countNumbersBelow = function(numberList,number) {
 /* Reversing an Array */
 
 const reverseArray = function(numberList) {
+  let inputArray = numberList;
   return numberList.reduce(reverse,[]);
 }
 
