@@ -142,14 +142,14 @@ const isGreatest = function(number1, number2) {
   return number1 > number2;
 }
 
-const countElementsAboveThreshold = function(threshold) {
+const countNumbersAboveThreshold = function(threshold) {
   return function(number) {
     return (number > threshold);
   }
 }
 
 const countNumbersAbove = function(numberList,threshold) {
-  return numberList.filter(countElementsAboveThreshold(threshold)).length;
+  return numberList.filter(countNumbersAboveThreshold(threshold)).length;
 }
 
 /* Count how many numbers below a certain threshold in an array*/
