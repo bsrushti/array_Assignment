@@ -91,15 +91,15 @@ const extractGreatestNumber = function(numberList) {
 
 /* Given a list of numbers, find the smallest number in that sequence */
 
-const getSmallestNumber = function(num1,num2) {
+const getSmallerNumber = function(num1,num2) {
   if(num1 < num2) {
     return num1;
   }
   return num2;
 }
 
-const extractSmallestNumber = function(numberList) {
-  return numberList.reduce(getSmallestNumber);
+const extractSmallerNumber = function(numberList) {
+  return numberList.reduce(getSmallerNumber);
 }
 
 /* Calculating average of given array elements */
@@ -134,7 +134,7 @@ const countEvenNumbers = function(numberList) {
 
 /* Count how many numbers above a certain threshold in an array */
 
-const isSmallest = function(number1, number2) {
+const isSmaller = function(number1, number2) {
   return number1 < number2;
 }
 
@@ -154,10 +154,10 @@ const countNumbersAbove = function(numberList,threshold) {
 
 /* Count how many numbers below a certain threshold in an array*/
 
-const countElementBelowThreshold = function(threshold) {
+const countNumbersBelowThreshold = function(threshold) {
   let counter = 0;
   return function(numberList,element) {
-    if(isSmallest(element,threshold)) {
+    if(isSmaller(element,threshold)) {
       counter ++;
     }
     return counter;
@@ -165,7 +165,7 @@ const countElementBelowThreshold = function(threshold) {
 }
 
 const countNumbersBelow = function(numberList,number) {
-  return numberList.reduce(countElementBelowThreshold(number),[]);
+  return numberList.reduce(countNumbersBelowThreshold(number),[]);
 }
 
 /* Reversing an Array */
@@ -250,7 +250,7 @@ const intersectingElements = function(object, element) {
 }
 
 const getIntersection = function(numberList1, numberList2) {
-  let smallList = getSmallestNumber(numberList1,numberList2);
+  let smallList = getSmallerNumber(numberList1,numberList2);
   let largeList = getGreatestNumber(numberList1,numberList2);
   return smallList.reduce(intersectingElements,{index:0,result:[],array:largeList}).result;
 }
@@ -289,7 +289,7 @@ const isSubset = function(numberList1,numberList2) {
 /* Make the zip of two array */
 
 const getMinLength = function(numberList1, numberList2) {
-  return getSmallestNumber(numberList1,numberList2);
+  return getSmallerNumber(numberList1,numberList2);
 }
 
 const zipSet = function(object, element) {
@@ -299,7 +299,7 @@ const zipSet = function(object, element) {
 }
 
 const zip = function(numberList1, numberList2) {
-  let smallList = getSmallestNumber(numberList1,numberList2);
+  let smallList = getSmallerNumber(numberList1,numberList2);
   let largeList = getGreatestNumber(numberList1,numberList2);
   let zip = smallList.reduce(zipSet,{index : 0, result : [], array : largeList}).result;
   return zip;
@@ -341,7 +341,7 @@ exports.reverseArrayNumbers = reverseArrayNumbers;
 exports.getSecondNumbers = getSecondNumbers;
 exports.reverseFibo = reverseFibo;
 exports.extractGreatestNumber = extractGreatestNumber;
-exports.extractSmallestNumber = extractSmallestNumber;
+exports.extractSmallerNumber = extractSmallerNumber;
 exports.calcAverage = calcAverage;
 exports.getStringLength = getStringLength;
 exports.countOddNumbers = countOddNumbers;
