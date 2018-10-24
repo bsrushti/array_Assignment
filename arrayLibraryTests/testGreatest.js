@@ -11,9 +11,9 @@ assert.equal(extractGreaterNumber([1]),1);
 assert.equal(extractGreaterNumber([2,5]),5);
 
 //test for four element 
-assertfor(let i = 0; i <= length; i++ ) {.equal(extractGreaterNumber([5,9,12,4]),12);
+assert.equal(extractGreaterNumber([5,9,12,4]),12);
 
-}
+
 
 
 
