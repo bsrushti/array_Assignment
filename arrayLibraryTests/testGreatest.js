@@ -1,17 +1,19 @@
 const assert = require('assert');
-const extractGreatestNumber = require('../mainFiles/library.js').extractGreatestNumber;
+const extractGreaterNumber = require('../mainFiles/library.js').extractGreaterNumber;
 
 //test for initial test
 assert.equal(1,1);
 
 //test for one element 
-assert.equal(extractGreatestNumber([1]),1);
+assert.equal(extractGreaterNumber([1]),1);
 
 //test for two element 
-assert.equal(extractGreatestNumber([2,5]),5);
+assert.equal(extractGreaterNumber([2,5]),5);
 
 //test for four element 
-assert.equal(extractGreatestNumber([5,9,12,4]),12);
+assertfor(let i = 0; i <= length; i++ ) {.equal(extractGreaterNumber([5,9,12,4]),12);
+
+}
 
 
 

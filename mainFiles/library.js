@@ -78,15 +78,15 @@ const reverseFibo = function(limit) {
 
 /* Given a list of numbers, find the greatest number in that sequence */
 
-const getGreatestNumber = function(num1,num2) {
+const getGreaterNumber = function(num1,num2) {
   if(num1 > num2) {
     return num1;
   }
   return num2;
 }
 
-const extractGreatestNumber = function(numberList) {
-  return numberList.reduce(getGreatestNumber);
+const extractGreaterNumber = function(numberList) {
+  return numberList.reduce(getGreaterNumber);
 }
 
 /* Given a list of numbers, find the smallest number in that sequence */
@@ -138,7 +138,7 @@ const isSmaller = function(number1, number2) {
   return number1 < number2;
 }
 
-const isGreatest = function(number1, number2) {
+const isGreater = function(number1, number2) {
   return number1 > number2;
 }
 
@@ -251,7 +251,7 @@ const intersectingElements = function(object, element) {
 
 const getIntersection = function(numberList1, numberList2) {
   let smallList = getSmallerNumber(numberList1,numberList2);
-  let largeList = getGreatestNumber(numberList1,numberList2);
+  let largeList = getGreaterNumber(numberList1,numberList2);
   return smallList.reduce(intersectingElements,{index:0,result:[],array:largeList}).result;
 }
 
@@ -300,7 +300,7 @@ const zipSet = function(object, element) {
 
 const zip = function(numberList1, numberList2) {
   let smallList = getSmallerNumber(numberList1,numberList2);
-  let largeList = getGreatestNumber(numberList1,numberList2);
+  let largeList = getGreaterNumber(numberList1,numberList2);
   let zip = smallList.reduce(zipSet,{index : 0, result : [], array : largeList}).result;
   return zip;
 }
@@ -340,7 +340,7 @@ exports.sumOfNumbers = sumOfNumbers;
 exports.reverseArrayNumbers = reverseArrayNumbers;
 exports.getSecondNumbers = getSecondNumbers;
 exports.reverseFibo = reverseFibo;
-exports.extractGreatestNumber = extractGreatestNumber;
+exports.extractGreaterNumber = extractGreaterNumber;
 exports.extractSmallerNumber = extractSmallerNumber;
 exports.calcAverage = calcAverage;
 exports.getStringLength = getStringLength;
