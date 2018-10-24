@@ -34,7 +34,7 @@ const reverse = function(initialValue,secondValue) {
   return [secondValue].concat(initialValue);
 }
 
-const reverseArrayElements = function(numberList) {
+const reverseArrayNumbers = function(numberList) {
   return numberList.reduce(reverse,[]);
 }
 
@@ -142,14 +142,14 @@ const isGreatest = function(number1, number2) {
   return number1 > number2;
 }
 
-const countElementAboveThreshold = function(threshold) {
+const countElementsAboveThreshold = function(threshold) {
   return function(number) {
     return (number > threshold);
   }
 }
 
 const countNumbersAbove = function(numberList,threshold) {
-  return numberList.filter(countElementAboveThreshold(threshold)).length;
+  return numberList.filter(countElementsAboveThreshold(threshold)).length;
 }
 
 /* Count how many numbers below a certain threshold in an array*/
@@ -337,7 +337,7 @@ const createPartition = function(numberList, number) {
 exports.extractOddNumber = extractOddNumber;
 exports.extractEvenNumber = extractEvenNumber;
 exports.sumOfNumbers = sumOfNumbers;
-exports.reverseArrayElements = reverseArrayElements;
+exports.reverseArrayNumbers = reverseArrayNumbers;
 exports.getSecondElements = getSecondElements;
 exports.reverseFibo = reverseFibo;
 exports.extractGreatestNumber = extractGreatestNumber;
