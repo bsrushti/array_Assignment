@@ -40,7 +40,7 @@ const reverseArrayNumbers = function(numberList) {
 
 /* Given a list of numbers, select every second one */
 
-const selectSecondElement = function(object, element) {
+const selectSecondNumbers = function(object, element) {
   if(isEven(object.index)) {
     object.numbers.push(element);
   }
@@ -49,7 +49,7 @@ const selectSecondElement = function(object, element) {
 }
 
 const getSecondNumbers = function(numberList) {
-  return numberList.reduce(selectSecondElement,{index:0,numbers:[]}).numbers;
+  return numberList.reduce(selectSecondNumbers,{index:0,numbers:[]}).numbers;
 }
 
 /* Generate a fibonacci sequence of length n in reverse order */
