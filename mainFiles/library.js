@@ -48,7 +48,7 @@ const selectSecondElement = function(object, element) {
   return object;
 }
 
-const getSecondElements = function(numberList) {
+const getSecondNumbers = function(numberList) {
   return numberList.reduce(selectSecondElement,{index:0,numbers:[]}).numbers;
 }
 
@@ -338,7 +338,7 @@ exports.extractOddNumber = extractOddNumber;
 exports.extractEvenNumber = extractEvenNumber;
 exports.sumOfNumbers = sumOfNumbers;
 exports.reverseArrayNumbers = reverseArrayNumbers;
-exports.getSecondElements = getSecondElements;
+exports.getSecondNumbers = getSecondNumbers;
 exports.reverseFibo = reverseFibo;
 exports.extractGreatestNumber = extractGreatestNumber;
 exports.extractSmallestNumber = extractSmallestNumber;
