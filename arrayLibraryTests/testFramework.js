@@ -1,5 +1,4 @@
 const assert = require('assert');
-//const lib = require('./libraryTest.js'); 
 
 const logTests = function(funcName, inputs, actual, expected) {
   return justifier(funcName, JSON.stringify(inputs), JSON.stringify(actual), JSON.stringify(expected));
